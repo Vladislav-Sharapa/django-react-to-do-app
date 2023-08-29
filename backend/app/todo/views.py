@@ -42,5 +42,5 @@ class TaskUpdate(APIView):
         serializer.is_valid(raise_exception=True)
         serializer.save()
 
-        return Response({"task": serializer.data})
+        return Response(serializer.data)
 
