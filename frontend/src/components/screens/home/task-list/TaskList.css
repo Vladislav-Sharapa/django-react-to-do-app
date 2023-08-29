@@ -1,0 +1,28 @@
+.task-wrapper{
+    cursor: pointer;
+    border-bottom: 1px solid#e9e9e9;
+    color: #686868;
+    padding: 10px;
+}
+
+.task-wrapper:hover{
+    background-color: #dbc6c6;
+}
+
+.flex-wrapper{
+    display: flex;
+}
+
+.list-wrapper{
+    background-color: #fff;
+}
+
+.header{
+    border-bottom: 1px solid#e9e9e9;
+    padding: 15px;
+    background-color:#f3f0f0;
+}
+
+.btn{
+    margin-left: 5px;
+}
