@@ -3,6 +3,19 @@ import './TaskList.css'
 
 export default function TaskList({tasks = [], setTasks}){
 
+    const handleUpdate = async(id, value) =>{
+        const response = await TaskService.submitUpdateTask(id, value)
+        const newTodos = tasks.map(t =>{
+
+            if(t.id === id){
+                return response
+            }
+            return t;
+        })
+        setTasks(newTodos)
+    }
+
+
     return(
         <div className="list-wrapper">
             <div className="flex-wrapper header">

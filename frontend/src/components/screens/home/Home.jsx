@@ -23,7 +23,7 @@ export default function Home(){
         <div className="container">
             <div id="task-container">
                 <TaskForm setTasks={setTasks}/>
-                <TaskList tasks={tasks}/>
+                <TaskList tasks={tasks} setTasks={setTasks}/>
             </div>
         </div>
     )
