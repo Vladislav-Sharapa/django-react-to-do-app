@@ -17,6 +17,15 @@ def task_list(request):
     
     return Response({'message': 'No data in database'})
 
+@api_view(['POST'])
+def task_delete(request, pk):
+    try:
+        task = Task.objects.get(id=pk)
+    except:
+        return Response({"error": "Object does not exists"})
+    task.delete()
+    return Response({'message': 'succsesfully deleted'})
+
 
 class TaskCreate(APIView):
     
