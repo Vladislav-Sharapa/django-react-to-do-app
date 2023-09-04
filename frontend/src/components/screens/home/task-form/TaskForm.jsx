@@ -16,7 +16,6 @@ export default function TaskForm({setTasks}){
 
     function handleAddTask(e){
         e.preventDefault()
-        console.log(data)
         handleSubmit()
         setData(Task)
     }
@@ -24,10 +23,7 @@ export default function TaskForm({setTasks}){
     function handleSubmit(){
         const fetchTasks = async() => {
             const response = await TaskService.submitTask(data)
-            
-                console.log('Go')
-                setTasks(prev => [response, ...prev])
-           
+            setTasks(prev => [...prev, response])
         }
         fetchTasks()
     }
