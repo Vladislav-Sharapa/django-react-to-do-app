@@ -15,6 +15,15 @@ export default function TaskList({tasks = [], setTasks}){
         setTasks(newTodos)
     }
 
+    const handleDelete = async(id) =>{
+        const response = await TaskService.submitDelete(id)
+
+        const newTodos = tasks.filter(t => {
+            return t.id !== id
+        })
+
+        setTasks(newTodos)
+    }
 
     return(
         <div className="list-wrapper">
@@ -23,7 +32,7 @@ export default function TaskList({tasks = [], setTasks}){
                     <span>Title</span>
                 </div>
                              
-                <div style={{flex:5}}>
+                <div style={{flex:4.5}}>
                     <span>Description</span>
                  </div>
             </div>
@@ -56,11 +65,9 @@ export default function TaskList({tasks = [], setTasks}){
                                 </div>
                             </>  
                             )}
+                           
                             <div style={{flex:0}}>
-                                <button className="btn  btn-outline-secondary ">Edit</button>
-                            </div>
-                            <div style={{flex:0}}>
-                                <button className="btn btn-outline-danger">Del</button>
+                                <button onClick={() =>{handleDelete(task.id)}} className="btn btn-outline-danger">Del</button>
                             </div>
                         </div>
                     )
