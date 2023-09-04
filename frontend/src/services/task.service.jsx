@@ -21,21 +21,21 @@ export const TaskService = {
             return responceData
         }
         else{
-            const message = `An error has occured: ${responce.message}`;
+            const message = `An error has occured: ${responce.status}`;
             throw new Error(message);
         }
     },
 
-    async submitEditTask(data){
+    async submitUpdateTask(id, value){
         const postRequest = {
             method:'post',
-            body:JSON.stringify(data),
+            body:JSON.stringify(value),
             headers: {
                 'content-type': 'application/json',
             }
         }
 
-        const responce = await fetch(`http://127.0.0.1:8000/api/task/update/${data.id}/`, postRequest)
+        const responce = await fetch(`http://127.0.0.1:8000/api/task/update/${id}/`, postRequest)
         if(responce.ok){
             const responceData = await responce.json()
             return responceData
@@ -46,14 +46,21 @@ export const TaskService = {
         }
     },
 
-    async submitDelete(data){
+    async submitDelete(id){
         const postRequest = {
             method:'post',
-            body:JSON.stringify(data),
             headers: {
                 'content-type': 'application/json',
             }
         }
-        const responce = await fetch(`http://127.0.0.1:8000/api/task/create/${data.id}/`, postRequest)
+        const responce = await fetch(`http://127.0.0.1:8000/api/task/delete/${id}/`, postRequest)
+        if(responce.ok){
+            const responceData = await responce.json()
+            return responceData
+        }
+        else{
+            const message = `An error has occured: ${responce.message}`;
+            throw new Error(message);
+        }
     }
 }
