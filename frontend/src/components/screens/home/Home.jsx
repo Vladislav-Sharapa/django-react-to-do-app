@@ -7,6 +7,7 @@ import './Home.css'
 export default function Home(){
 
     const [tasks, setTasks] = useState([])
+    const [state, setState] = useState(false)
 
     useEffect(() =>{
         const fetchData = async() => {
@@ -22,7 +23,7 @@ export default function Home(){
     return(
         <div className="container">
             <div id="task-container">
-                <TaskForm setTasks={setTasks}/>
+                <TaskForm setTasks={setTasks} state={state}/>
                 <TaskList tasks={tasks} setTasks={setTasks}/>
             </div>
         </div>
