@@ -36,7 +36,7 @@ export default function TaskList({tasks = [], setTasks}){
                     <span>Description</span>
                  </div>
             </div>
-            {tasks.map(function(task, index){
+            {Array.isArray(tasks) ? tasks.map(function(task, index){
                 return(
                         <div onClick={() => {
                             handleUpdate(task.id, {
@@ -71,7 +71,7 @@ export default function TaskList({tasks = [], setTasks}){
                             </div>
                         </div>
                     )
-                })}
+                }): null}
         </div>
     )
 }
