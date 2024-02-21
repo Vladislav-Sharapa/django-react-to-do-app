@@ -38,38 +38,42 @@ export default function TaskList({tasks = [], setTasks}){
             </div>
             {Array.isArray(tasks) ? tasks.map(function(task, index){
                 return(
-                        <div onClick={() => {
-                            handleUpdate(task.id, {
-                                title: task.title,
-                                completed: !task.completed
-                            })
-                        }} key={index} className="task-wrapper flex-wrapper">
-                            {task.completed == false ?(
-                                <>
+                        <>
+                            <div key={index} className="task-wrapper flex-wrapper">
+                                {task.completed == false ?(
+                                    <>
+                                        <div style={{flex:2}}>
+                                            <span>{task.title}</span>
+                                        </div>
+
+                                        <div style={{flex:3}}>
+                                            <span>{task.description}</span>
+                                        </div>
+                                    </>
+                                ) : (
+                                    <>
                                     <div style={{flex:2}}>
-                                        <span>{task.title}</span>
+                                        <strike>{task.title}</strike>
                                     </div>
 
-                                    <div style={{flex:3.8}}>
-                                        <span>{task.description}</span>
+                                    <div style={{flex:3}}>
+                                        <strike>{task.description}</strike>
                                     </div>
-                                </>
-                            ) : (
-                                <>
-                                <div style={{flex:2}}>
-                                    <strike>{task.title}</strike>
+                                </>  
+                                )}
+                                <div style={{flex:0}}>
+                                    <button onClick={() =>{handleUpdate(task.id, {
+                                        title: task.title,
+                                        completed: !task.completed
+                                        })}}
+                                        className="btn btn-outline-success">Comp</button>
                                 </div>
-
-                                <div style={{flex:3.8}}>
-                                    <strike>{task.description}</strike>
+                                <div style={{flex:0}}>
+                                    <button onClick={() =>{handleDelete(task.id)}} className="btn btn-outline-danger">Del</button>
                                 </div>
-                            </>  
-                            )}
-                           
-                            <div style={{flex:0}}>
-                                <button onClick={() =>{handleDelete(task.id)}} className="btn btn-outline-danger">Del</button>
                             </div>
-                        </div>
+                        </>
+                       
                     )
                 }): null}
         </div>
