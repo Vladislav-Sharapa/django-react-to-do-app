@@ -44,7 +44,7 @@ export default function TaskForm({setTasks}){
                            placeholder="Description"
                            onChange={e => setData(prev => ({...prev, description:e.target.value}))}
                            value={data.description}/>
-                    <input onClick={e => handleAddTask(e)} className="btn btn-warning" id='btn-submit' type="submit" name='Add' />
+                    <input onClick={e => handleAddTask(e)} className="btn btn-warning" id='btn-submit' type="submit" name='Add' value='Send' />
                 </div>
             </form>
         </div>
