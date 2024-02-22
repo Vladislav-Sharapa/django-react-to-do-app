@@ -1,6 +1,8 @@
 # Django-react ToDo application
 This is a simple Todo application built using Django for the backend and React for the frontend.
+
 ![IMAGE!](preview.png)
+
 ## Features
 * Add, update, and delete tasks.
 * Mark tasks as completed.
