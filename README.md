@@ -13,7 +13,7 @@ The first thing to do is to clone the repository:
 $ git clone https://github.com/Vladislav-Sharapa/django-react-to-do-app
 ```
 ### Backend(Django) 
-1. Navigate to the frontend directory:
+1. Navigate to the backend directory:
 ```
 $ cd backend
 ```
